@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player vs Monster</title>
+    <link rel="icon" href="main.png">
+    <link rel="stylesheet" href="assets/style/style.css">
+    <script src="assets/js/app.js" defer></script>
+</head>
+
+<body>
+    <div id="ground">
+        <section id="monster-info">
+            <div id="health-data-div">
+                <h1 class="health-bar monster">0000/0000</h1>
+            </div>
+
+            <progress class="health-indicate monster" max="100" value="100">100%</progress>
+            <div id="next-div">
+                <button id="next-stage" class="btn">Next Stage</button>
+            </div>
+        </section>
+
+        <section id="speed-div">
+            <div id="player-speed" class="speed-inter">
+            </div>
+            <div id="monster-speed" class="speed-inter">
+
+            </div>
+        </section>
+
+        <div id="play">
+            <div id="player-div">
+                <section id="player-obj">
+                    <span id="player-xp">XP: 00</span>
+                    <span class="health-bar player">0000/0000</span>
+                    <progress class="health-indicate player" max="100" value="100">100%</progress>
+                </section>
+                <section id="player-stat" class="first-hide">
+                </section>
+            </div>
+            <div id="dummy">
+                <section id="attack-btn-div">
+                    <button class="btn __attack">Attack</button>
+                    <button class="btn __critical cool-time">Critical Attack</button>
+                    <span id="remain-cool">cool time: 15/15</span>
+                </section>
+
+                <section id="monster-obj">
+                    <span id="monster-level">Lv.1</span>
+                </section>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
