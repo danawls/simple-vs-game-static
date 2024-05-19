@@ -83,7 +83,7 @@ const monsterStats = [
     9,
     10,
     7,
-    "https://i.namu.wiki/i/CIOAWlxeyxrA55dvF54Q3xsYXI8JJlQe-PUgwuwO2LcUcc7JPqBRlAwAwxskigti_fGn2VOazXjYExJ_OQwQcw.webp"
+    "https://mblogthumb-phinf.pstatic.net/20160213_244/handsmarket_14553441364258wSzd_JPEG/Untitled-1.jpg?type=w800"
   ),
 ];
 
@@ -304,6 +304,7 @@ const reorganize = () => {
   attackBtn.classList.add("prevent");
   monsterLevel.textContent = "Compelete!";
   playerXp.textContent = `XP: ${xp}`;
+  criticalBtn.classList.add("cool-time");
 };
 
 const update = (tag) => {
