@@ -15,21 +15,32 @@ const monsterHealthIndicate = document.querySelector(
 );
 const playerHealthIndicate = document.querySelector(".health-indicate.player");
 
-const makeStat = (strength, defense, health, speed, coolTime, imgUrl) => {
-  const stat = {
-    strength: strength,
-    defense: defense,
-    health: health,
-    speed: speed,
-    coolTime: coolTime,
-    imgUrl: imgUrl,
-  };
+class MakeStat {
+  constructor(strength, defense, health, speed, coolTime, imgUrl) {
+    this.strength = strength;
+    this.defense = defense;
+    this.health = health;
+    this.speed = speed;
+    this.coolTime = coolTime;
+    this.imgUrl = imgUrl;
+  }
+}
 
-  return stat;
-};
+// const new MakeStat = (strength, defense, health, speed, coolTime, imgUrl) => {
+//   const stat = {
+//     strength: strength,
+//     defense: defense,
+//     health: health,
+//     speed: speed,
+//     coolTime: coolTime,
+//     imgUrl: imgUrl,
+//   };
+
+//   return stat;
+// };
 
 const monsterStats = [
-  makeStat(
+  new MakeStat(
     0,
     0,
     0,
@@ -37,7 +48,7 @@ const monsterStats = [
     0,
     "https://i.namu.wiki/i/CIOAWlxeyxrA55dvF54Q3xsYXI8JJlQe-PUgwuwO2LcUcc7JPqBRlAwAwxskigti_fGn2VOazXjYExJ_OQwQcw.webp"
   ),
-  makeStat(
+  new MakeStat(
     2,
     2,
     2,
@@ -45,7 +56,7 @@ const monsterStats = [
     1,
     "https://cdn-store.leagueoflegends.co.kr/images/v2/champion-chromas/27013.png"
   ),
-  makeStat(
+  new MakeStat(
     3,
     3,
     3,
@@ -53,7 +64,7 @@ const monsterStats = [
     2,
     "https://mblogthumb-phinf.pstatic.net/MjAyMDA2MTZfMjgw/MDAxNTkyMjcxOTg3NjQ5.giD_B186-k5XAr1T2GAnwUKZw8FfjBZnyt3xDlmKHsAg.fc_HdctAajudkhzRRG8m40PQ2gZxh7jUsM0bAOTbxxEg.PNG.thdbdlaeo/15.png?type=w420"
   ),
-  makeStat(
+  new MakeStat(
     4,
     4,
     4,
@@ -61,7 +72,7 @@ const monsterStats = [
     4,
     "https://w7.pngwing.com/pngs/609/52/png-transparent-dota-2-character-league-of-legends-summoner-zed-icon-zed-high-quality-presentation-video-game-sticker.png"
   ),
-  makeStat(
+  new MakeStat(
     7,
     4,
     6,
@@ -69,7 +80,7 @@ const monsterStats = [
     4,
     "https://w7.pngwing.com/pngs/168/707/png-transparent-league-of-legends-computer-file-darius-image-file-formats-superhero-fictional-character-thumbnail.png"
   ),
-  makeStat(
+  new MakeStat(
     10,
     5,
     7,
@@ -77,7 +88,7 @@ const monsterStats = [
     5,
     "https://storage.enuri.info/pic_upload/enurinews/tempImages/smart/202105/61505_7.png"
   ),
-  makeStat(
+  new MakeStat(
     10,
     6,
     9,
@@ -85,15 +96,23 @@ const monsterStats = [
     7,
     "https://mblogthumb-phinf.pstatic.net/20160213_244/handsmarket_14553441364258wSzd_JPEG/Untitled-1.jpg?type=w800"
   ),
+  new MakeStat(
+    10,
+    10,
+    10,
+    10,
+    10,
+    "https://mblogthumb-phinf.pstatic.net/MjAyMDA2MTZfMTk4/MDAxNTkyMjY5MzIxNTQ2.DkS2nEloBnpiclTP6AWkTAk4FYRgo0weevuJ8GQXnAAg.zCm11sIGyNrugIRfX5ErTxEw3KdkycpIaPwzjSLFW0kg.PNG.thdbdlaeo/21.png?type=w420"
+  ),
 ];
 
-const playerStats = makeStat(
+const playerStats = new MakeStat(
   1,
   0,
   0,
   0,
   0,
-  "https://liquipedia.net/commons/images/5/54/League_Infobox_Ezreal.jpg"
+  "https://image.fmkorea.com/files/attach/new3/20231210/14339012/4549087914/6490817300/be599fdab10aeff1e3959b0775c8336c.png"
 );
 
 const BASICCOOL = 13;
@@ -389,6 +408,13 @@ const updateMonsterHealthIndicateMax = () => {
   monsterHealthIndicate.max = updateCurInfo()[0];
 };
 
+const updateUserImg = () => {
+  const userImg = document.createElement("img");
+  userImg.src = playerStats.imgUrl;
+  userImg.classList.add("img-size");
+  playerObj.appendChild(userImg);
+};
+
 nextStage.addEventListener("click", update.bind(null, "win"));
 attackBtn.addEventListener("click", handleAttack);
 criticalBtn.addEventListener("click", handleCritical);
@@ -402,3 +428,4 @@ updatePlayerIndicateMax();
 updatePlayerIndicateValue();
 console.log("hello");
 updateImg();
+updateUserImg();
