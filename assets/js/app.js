@@ -43,7 +43,7 @@ const monsterStats = [
     2,
     0,
     1,
-    "https://i.namu.wiki/i/CIOAWlxeyxrA55dvF54Q3xsYXI8JJlQe-PUgwuwO2LcUcc7JPqBRlAwAwxskigti_fGn2VOazXjYExJ_OQwQcw.webp"
+    "https://cdn-store.leagueoflegends.co.kr/images/v2/champion-chromas/27013.png"
   ),
   makeStat(
     3,
@@ -51,7 +51,7 @@ const monsterStats = [
     3,
     3,
     2,
-    "https://i.namu.wiki/i/CIOAWlxeyxrA55dvF54Q3xsYXI8JJlQe-PUgwuwO2LcUcc7JPqBRlAwAwxskigti_fGn2VOazXjYExJ_OQwQcw.webp"
+    "https://mblogthumb-phinf.pstatic.net/MjAyMDA2MTZfMjgw/MDAxNTkyMjcxOTg3NjQ5.giD_B186-k5XAr1T2GAnwUKZw8FfjBZnyt3xDlmKHsAg.fc_HdctAajudkhzRRG8m40PQ2gZxh7jUsM0bAOTbxxEg.PNG.thdbdlaeo/15.png?type=w420"
   ),
   makeStat(
     4,
@@ -59,7 +59,7 @@ const monsterStats = [
     4,
     5,
     4,
-    "https://i.namu.wiki/i/CIOAWlxeyxrA55dvF54Q3xsYXI8JJlQe-PUgwuwO2LcUcc7JPqBRlAwAwxskigti_fGn2VOazXjYExJ_OQwQcw.webp"
+    "https://w7.pngwing.com/pngs/609/52/png-transparent-dota-2-character-league-of-legends-summoner-zed-icon-zed-high-quality-presentation-video-game-sticker.png"
   ),
   makeStat(
     7,
@@ -67,7 +67,7 @@ const monsterStats = [
     6,
     7,
     4,
-    "https://i.namu.wiki/i/CIOAWlxeyxrA55dvF54Q3xsYXI8JJlQe-PUgwuwO2LcUcc7JPqBRlAwAwxskigti_fGn2VOazXjYExJ_OQwQcw.webp"
+    "https://w7.pngwing.com/pngs/168/707/png-transparent-league-of-legends-computer-file-darius-image-file-formats-superhero-fictional-character-thumbnail.png"
   ),
   makeStat(
     10,
@@ -75,7 +75,7 @@ const monsterStats = [
     7,
     8,
     5,
-    "https://i.namu.wiki/i/CIOAWlxeyxrA55dvF54Q3xsYXI8JJlQe-PUgwuwO2LcUcc7JPqBRlAwAwxskigti_fGn2VOazXjYExJ_OQwQcw.webp"
+    "https://storage.enuri.info/pic_upload/enurinews/tempImages/smart/202105/61505_7.png"
   ),
   makeStat(
     10,
@@ -287,6 +287,13 @@ const handleDraw = () => {
   update("draw");
 };
 
+const updateImg = () => {
+  monsterObj.removeChild(monsterObj.lastChild);
+  const newImg = document.createElement("img");
+  newImg.src = monsterStats[curMonsterLevel - 1].imgUrl;
+  monsterObj.appendChild(newImg);
+};
+
 const reorganize = () => {
   removeBtn();
   playerStat.classList.remove("first-hide");
@@ -319,6 +326,7 @@ const update = (tag) => {
   updateMonsterHealthIndicateValue();
   updatePlayerIndicateMax();
   updatePlayerIndicateValue();
+  updateImg();
 };
 
 const updateStat = (key) => {
@@ -392,3 +400,4 @@ updateMonsterHealthIndicateValue();
 updatePlayerIndicateMax();
 updatePlayerIndicateValue();
 console.log("hello");
+updateImg();
